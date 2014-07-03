@@ -3,26 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <title>Shortly</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
   </head>
   <body>
-    <h1>Shortly</h1>
+    <div class="container">
+      <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a class="brand" href="#">Shortly</a>
+          <ul class="nav">
+            <li ng-if="showNavLinks"><a ui-sref="shorten">Shorten</a></li>
+            <li ng-if="showNavLinks"><a ui-sref="links">Links</a></li>
+          </ul>
+        </div>
+      </div>
 
-    <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
-    <div ng-view></div>
-
+      <div ui-view></div>
+    </div>
     <script>
       document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
-    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+    <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
 
     <script src="app/auth/auth.js"></script>
     <script src="app/links/links.js"></script>
     <script src="app/shorten/shorten.js"></script>
     <script src="app/services/services.js"></script>
     <script src="app/app.js"></script>
+
   </body>
 </html>

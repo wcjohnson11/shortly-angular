@@ -1,10 +1,10 @@
 <div id='signup'>
-  <h1>signup</h1>
+  <h1>sign up</h1>
   <form name="signupForm" ng-submit='signup()'>
     <input type='text' placeholder='username' name='name' ng-model='user.username' ng-minlength=3 ng-maxlength=20 required />
     <input type="password" placeholder='password' name='password' ng-model='user.password' ng-minlength=3 ng-maxlength=20 required />
 
-    <button>signup</button>
+    <button>sign up</button>
 
   <div ng-show="signupForm.name.$dirty && signupForm.name.$invalid">
     <small ng-show="signupForm.name.$error.required">
