@@ -9,11 +9,11 @@ module.exports = function (app) {
   // req.navLink before it reaches line 16.
   app.param('code', linksController.findUrl);
   //needs to be switched with middleware.js api/links
-  app.route('/')
+  app.route('/api/links')
     .get(linksController.allLinks)
     .post(linksController.newLink);
 
   app.get('/:code', linksController.navToLink);
-  app.post('/shorten', linksController.newLink);
+  // app.post('/shorten', linksController.newLink);
 
 };
