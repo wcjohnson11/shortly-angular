@@ -1,5 +1,6 @@
 <div id='container'>
   <!-- Your html here -->
+  <a href=#/shorten>Shorten</a>
   <input ng-model='search' placeholder='search'/>
   <ul>
     <li ng-repeat="link in data.links | orderBy: ['visits'] : true | filter: search">
