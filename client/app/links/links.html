@@ -1,8 +1,9 @@
 <div id='container'>
   <!-- Your html here -->
+  <input ng-model='search' placeholder='search'/>
   <ul>
-    <li ng-repeat='link in data.links'>
-      <a href={{link.url}} target='_blank'>{{link.title}}</a> {{ link.visits }}
+    <li ng-repeat="link in data.links | orderBy: ['visits'] : true | filter: search">
+      <a href={{link.url}} target='_blank' ng-click="link.visits = link.visits + 1">{{link.title}}</a> {{ link.visits }} <!--{{link.code}} -->
     </li>
   </ul>
 </div>
