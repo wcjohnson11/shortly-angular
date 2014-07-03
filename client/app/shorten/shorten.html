@@ -1,5 +1,8 @@
 <div id='container'>
 <!-- Your code here -->
+  <span ng-if='loading' class='animate-if'>
+  <img src='../../assets/spiffygif_46x46.gif'/>
+  </span>
   <form name="shortenForm" ng-submit='addLink()'>
     <input type='url' ng-model='link'>
     <button>Add Link</button>
