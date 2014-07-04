@@ -32,10 +32,20 @@ module.exports = function (app, express) {
 var GITHUB_CLIENT_ID = "51ae1593f2e61182a1a9";
 var GITHUB_CLIENT_SECRET = "1283671c930ed1c42ed9bbf08292266e2bfac2a3";
 
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findOne(id, function (err, user) {
+    done(err, user);
+  });
+});
+
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:8000/links"
+    callbackURL: "http://localhost:8000/api/users/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {

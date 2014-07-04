@@ -15,13 +15,13 @@ module.exports = function (app) {
     passport.authenticate('github'),
     function(req, res){});
 
-    console.log('authrequest');
     app.get('/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/signin' }),
     function(req, res) {
       // Successful authentication, redirect home.
-      console.log(res);
-      res.redirect('/links');
+      console.log('REQ',req.user.username);
+
+      res.redirect('/#/shorten');
     });
 
 
