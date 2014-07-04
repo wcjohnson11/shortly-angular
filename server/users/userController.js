@@ -1,6 +1,10 @@
 var User = require('./userModel.js'),
     Q    = require('q'),
-    jwt  = require('jwt-simple');
+    jwt  = require('jwt-simple'),
+    passport = require('passport'),
+    GitHubStrategy = require('passport-github').Strategy;
+
+
 
 module.exports = {
   signin: function (req, res, next) {

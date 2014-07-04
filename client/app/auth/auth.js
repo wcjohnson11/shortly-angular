@@ -7,6 +7,8 @@ angular.module('shortly.auth', [])
   $scope.user = {};
 
   $scope.signin = function () {
+    //try to include github passport factory
+    //call get req's to github
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
@@ -18,6 +20,7 @@ angular.module('shortly.auth', [])
   };
 
   $scope.signup = function () {
+    //same as signin
     Auth.signup($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
