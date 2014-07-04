@@ -19,7 +19,8 @@ module.exports = function (app) {
     passport.authenticate('github', { failureRedirect: '/signin' }),
     function(req, res) {
       // Successful authentication, redirect home.
-      console.log('REQ',req.user.username);
+      console.log('REQ',req.user);
+      userController.signin;
 
       res.redirect('/#/shorten');
     });

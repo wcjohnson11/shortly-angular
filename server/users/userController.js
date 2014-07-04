@@ -8,8 +8,10 @@ var User = require('./userModel.js'),
 
 module.exports = {
   signin: function (req, res, next) {
-    var username = req.body.username,
-        password = req.body.password;
+
+
+    var username = req.user.username;
+        // password = req.user.password;
 
     var findUser = Q.nbind(User.findOne, User);
     findUser({username: username})
